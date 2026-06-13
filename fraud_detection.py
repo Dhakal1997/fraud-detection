@@ -3,8 +3,13 @@ import pandas as pd
 import joblib
 
 # Load the pre-trained model
-model = joblib.load('fraud_detection_pipeline.pkl')
-st.success('Model loaded successfully!')
+try:
+    model = joblib.load('fraud_detection_pipeline.pkl')
+    st.success("Model loaded!")
+except Exception as e:
+    st.exception(e)
+# model = joblib.load('fraud_detection_pipeline.pkl')
+# st.success('Model loaded successfully!')
 # import os
 
 # print(os.path.getsize('fraud_detection_pipeline.pkl'))
